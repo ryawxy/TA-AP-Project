@@ -1,9 +1,6 @@
-import view.frame.GameFrame;
-import view.panel.GamePanel;
+import controller.MyProject;
 
-public class Main {
     public static void main(String[] args) {
-        GamePanel panel = new GamePanel();
-        GameFrame frame = new GameFrame(panel);
+        new MyProject();
     }
-}
+
