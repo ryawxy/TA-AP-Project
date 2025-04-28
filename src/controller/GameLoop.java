@@ -1,6 +1,11 @@
 package controller;
 
 public class GameLoop extends Thread {
+    GameController controller;
+
+    public GameLoop(GameController controller) {
+        this.controller = controller;
+    }
 
     @Override
     public void run() {
@@ -17,14 +22,12 @@ public class GameLoop extends Thread {
         double deltaFrame = 0;
 
         while (true) {
-
             long currentTime = System.nanoTime();
 
             deltaUpdate += (currentTime - previousTime) / timePerUpdate;
             deltaFrame += (currentTime - previousTime) / timePerFrame;
 
             previousTime = currentTime;
-
 
             if (deltaUpdate >= 1) {
 
@@ -34,23 +37,19 @@ public class GameLoop extends Thread {
 
             if (deltaFrame >= 1) {
 
+                controller.updateGame();
+                // TODO
 
+                frames++;
+                deltaFrame--;
+            }
 
+            if (System.currentTimeMillis() - lastCheck >= 1000) {
+                lastCheck = System.currentTimeMillis();
 
-                //TODO
-
-
-
-                    frames++;
-                    deltaFrame--;
-                }
-
-                if (System.currentTimeMillis() - lastCheck >= 1000) {
-                    lastCheck = System.currentTimeMillis();
-
-                    frames = 0;
-                    updates = 0;
-                }
+                frames = 0;
+                updates = 0;
             }
         }
+    }
 }

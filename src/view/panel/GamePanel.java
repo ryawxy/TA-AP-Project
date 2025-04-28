@@ -3,6 +3,7 @@ package view.panel;
 import javax.swing.JPanel;
 
 import model.Curve;
+import model.GameObject;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,15 +15,16 @@ import model.Point;
 public class GamePanel extends JPanel {
     Curve curve;
     List<Point> points = new ArrayList<>();
+    List<GameObject> gameObjects = new ArrayList<>();
 
-    public GamePanel() {
+    public GamePanel(Curve curve) {
         this.setBackground(Color.BLACK); // Set the panel background to black
 
-        points.add(new Point(100, 300));
-        points.add(new Point(350, 500));
-        points.add(new Point(500, 600));
+        this.curve = curve;
+    }
 
-        curve = new Curve(points);
+    public void setGameObjects(List<GameObject> gameObjects) {
+        this.gameObjects = gameObjects;
     }
 
     @Override
@@ -31,5 +33,9 @@ public class GamePanel extends JPanel {
 
         Graphics2D g2d = (Graphics2D) g;
         curve.draw(g2d);
+
+        for (GameObject object : gameObjects) {
+            object.draw(g2d);
+        }
     }
 }

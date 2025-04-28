@@ -1,50 +1,27 @@
 package model;
 
-public class Circle  {
+import java.awt.Color;
+import java.awt.Graphics2D;
 
-    private double radius;
-    private double x;
-    private double y;
-    private double speed;
+public class Circle extends GameObject {
 
-    public Circle(double radius, double x, double y, double speed) {
+    private int radius;
+
+    public Circle(int radius, int x, int y, int speed, Color color) {
+        super(color, speed, x, y, radius, radius);
         this.radius = radius;
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
     }
 
-    public double getRadius() {
+    public void draw(Graphics2D g) {
+        g.setColor(Color.GREEN);
+        g.fillOval(this.getX(), this.getY(), this.getRadius(), this.getRadius());
+    }
+
+    public int getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(int radius) {
         this.radius = radius;
     }
-
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
-    public double getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(double speed) {
-        this.speed = speed;
-    }
-
-
 }
