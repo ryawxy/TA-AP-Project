@@ -1,4 +1,10 @@
 package controller;
 
-public class MovementController {
+import model.Movable;
+
+public class MovementController implements Movable {
+    @Override
+    public void move() {
+
+    }
 }
