@@ -10,10 +10,6 @@ public class Curve {
     private int stroke = 2;
 
     public Curve(List<Point> points) {
-        if (points.size() < 3) {
-            throw new IllegalArgumentException("Need at least 3 points for a curve");
-        }
-
         this.points = points;
     }
 
