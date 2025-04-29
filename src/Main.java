@@ -1,6 +1,8 @@
 import controller.MyProject;
 
-    public static void main(String[] args) {
-        new MyProject();
-    }
 
+public class Main {
+    public static void main(String[] args) {
+        new MyProject().start();
+    }
+}

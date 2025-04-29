@@ -1,8 +1,7 @@
 package model;
-
 import java.util.List;
 
-public class Curve {
+public class Curve  {
     private List<Point> points;
     private int stroke = 2;
 

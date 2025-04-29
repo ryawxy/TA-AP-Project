@@ -1,10 +1,10 @@
 package controller;
 
-import view.frame.GameFrame;
-import view.panel.GamePanel;
+public  class MyProject {
+    public MyProject() {
+    }
+    public void start(){
+        new Game();
 
-public class MyProject {
-    Game game = new Game();
-    GamePanel panel = new GamePanel();
-    GameFrame frame = new GameFrame(panel);
+    }
 }
