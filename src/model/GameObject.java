@@ -2,7 +2,9 @@ package model;
 
 import java.awt.Color;
 
-public abstract class GameObject implements Movable {
+public abstract class GameObject extends Movable {
+    private static double CONSTANT_SPEED_FACTOR = 0.001;
+
     protected Color color;
     protected int speed;
     protected int x;
@@ -24,6 +26,8 @@ public abstract class GameObject implements Movable {
     public void move(int x, int y) {
         this.x = x;
         this.y = y;
+
+        setCurrentT(getCurrentT() + (speed * CONSTANT_SPEED_FACTOR));
     }
 
     public int getWidth() {

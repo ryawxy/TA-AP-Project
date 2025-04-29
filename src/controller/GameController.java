@@ -1,16 +1,18 @@
 package controller;
 
+import model.Circle;
+import model.Curve;
 import model.GameObject;
+import model.Point;
 import view.panel.GamePanel;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
-    private final List<GameObject> gameObjects = new ArrayList<>();
     private final GamePanel panel;
     private final MovementController movementController;
-    private double currentT = 0;
 
     public GameController(GamePanel panel) {
         this.panel = panel;
@@ -19,9 +21,40 @@ public class GameController {
     }
 
     public void initGameObjects() {
-        this.gameObjects.add(Game.getCircleInstance());
-        this.panel.setGameObjects(this.gameObjects);
+        Game.getInstance().getGameObjects().add(createCircle());
+        Game.getInstance().getCurves().add(createCurve());
+        Game.getInstance().getGameObjects().add(createCircle(200, 100));
+
+        panel.setObjects(Game.getInstance().getAllPaintables());
         refreshPanel();
+    }
+
+    private Curve createCurve() {
+        List<Point> points = new ArrayList<>();
+
+        // points.add(new Point(50, 300));
+        // points.add(new Point(400, 50));
+        // points.add(new Point(600, 500));
+
+        points.add(new Point(50, 300));
+        points.add(new Point(150, 200));
+        points.add(new Point(250, 300));
+
+        points.add(new Point(350, 400));
+        points.add(new Point(450, 300));
+
+        points.add(new Point(550, 200));
+        points.add(new Point(650, 300));
+
+        return new Curve(points);
+    }
+
+    private Circle createCircle() {
+        return new Circle(40, 100, 100, 2, Color.GREEN);
+    }
+
+    private Circle createCircle(int x, int y) {
+        return new Circle(40, x, y, 2, Color.GREEN);
     }
 
     public void refreshPanel() {
@@ -30,17 +63,17 @@ public class GameController {
     }
 
     public void updateGame() {
-        if (currentT < 1) {
-            moveFirstObject(currentT);
-            currentT += 2 * 0.001;
-        } else {
-            currentT = 0;
-        }
+        moveFirstObject();
     }
 
-    public void moveFirstObject(double t) {
-        movementController.moveAlongCurve(gameObjects.get(0), Game.getCurve(), t);
-        this.panel.setGameObjects(gameObjects);
+    public void moveFirstObject() {
+        movementController.moveAlongCurve(Game.getInstance().getGameObjects().get(0),
+                Game.getInstance().getCurves().get(0), Game.getInstance().getGameObjects().get(0).getCurrentT());
+        panel.setObjects(Game.getInstance().getAllPaintables());
         refreshPanel();
+
+        if (Game.getInstance().getGameObjects().get(0).getCurrentT() >= 1.0) {
+            Game.getInstance().getGameObjects().get(0).setCurrentT(0.0);
+        }
     }
 }

@@ -7,8 +7,13 @@ import model.Point;
 import java.awt.*;
 import java.awt.geom.QuadCurve2D;
 
-public  class CurveView implements Paintable {
-    private final Curve model = Game.getCurve();
+public class CurveView implements Paintable {
+    private final Curve model;
+
+    public CurveView(Curve curve) {
+        this.model = curve;
+    }
+
     @Override
     public void paint(Graphics2D g) {
         g.setColor(Color.RED);

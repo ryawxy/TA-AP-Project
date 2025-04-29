@@ -2,9 +2,11 @@ package controller;
 
 import model.Circle;
 import model.Curve;
+import model.GameObject;
 import model.Point;
 import view.CircleView;
 import view.CurveView;
+import view.Paintable;
 import view.frame.GameFrame;
 import view.panel.GamePanel;
 
@@ -14,65 +16,57 @@ import java.util.List;
 
 public class Game {
 
-    private static Curve curveInstance;
-    private static List<Point> points = new ArrayList<>();
-    private static CurveView curveViewInstance;
-    private static Circle circleInstance;
-    private static CircleView circleViewInstance;
+    private static Game instace = new Game();
 
-    public Game() {
-        GamePanel panel = new GamePanel(Game.getCurve());
+    private List<Curve> curves = new ArrayList<>();
+    private List<GameObject> gameObjects = new ArrayList<>();
+
+    public static Game getInstance() {
+        return instace;
+    }
+
+    private Game() {
+
+    }
+
+    public void start() {
+        GamePanel panel = new GamePanel(getAllPaintables());
         GameController controller = new GameController(panel);
-        controller.moveFirstObject(0.0);
+        controller.moveFirstObject();
         GameFrame frame = new GameFrame(panel);
 
         GameLoop gameLoop = new GameLoop(controller);
         gameLoop.start();
     }
 
-    private static void createCurve() {
-        points.add(new Point(50, 300));
-        points.add(new Point(150, 200));
-        points.add(new Point(250, 300));
-
-        points.add(new Point(350, 400));
-        points.add(new Point(450, 300));
-
-        points.add(new Point(550, 200));
-        points.add(new Point(650, 300));
-
-        curveInstance = new Curve(points);
+    public List<Curve> getCurves() {
+        return this.curves;
     }
 
-    private static void createCircle() {
-        circleInstance = new Circle(40, 100, 100, 2, Color.GREEN);
+    public List<GameObject> getGameObjects() {
+        return this.gameObjects;
     }
 
-    public static Curve getCurve() {
-        if (curveInstance == null) {
-            createCurve();
+    public void setGameObjects(List<GameObject> gameObjects) {
+        this.gameObjects = gameObjects;
+    }
+
+    public void setCurves(List<Curve> curves) {
+        this.curves = curves;
+    }
+
+    public List<Paintable> getAllPaintables() {
+        List<Paintable> paintables = new ArrayList<>();
+        for (Curve curve : curves) {
+            paintables.add(new CurveView(curve));
         }
-        return curveInstance;
-    }
 
-    public static CurveView getCurveView() {
-        if (curveViewInstance == null) {
-            curveViewInstance = new CurveView();
+        for (GameObject object : gameObjects) {
+            if (object instanceof Circle) {
+                paintables.add(new CircleView((Circle) object));
+            }
         }
-        return curveViewInstance;
-    }
 
-    public static Circle getCircleInstance() {
-        if (circleInstance == null) {
-            createCircle();
-        }
-        return circleInstance;
-    }
-
-    public static CircleView getCircleView() {
-        if (circleViewInstance == null) {
-            circleViewInstance = new CircleView();
-        }
-        return circleViewInstance;
+        return paintables;
     }
 }

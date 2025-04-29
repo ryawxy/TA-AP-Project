@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import controller.Game;
 import model.Curve;
 import model.GameObject;
+import view.CurveView;
+import view.Paintable;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,17 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePanel extends JPanel {
-    Curve curve;
-    List<GameObject> gameObjects = new ArrayList<>();
+    List<Paintable> objects;
 
-    public GamePanel(Curve curve) {
+    public GamePanel(List<Paintable> objects) {
         this.setBackground(Color.BLACK);
-
-        this.curve = curve;
+        this.objects = objects;
     }
 
-    public void setGameObjects(List<GameObject> gameObjects) {
-        this.gameObjects = gameObjects;
+    public void setObjects(List<Paintable> objects) {
+        this.objects = objects;
     }
 
     @Override
@@ -31,11 +31,11 @@ public class GamePanel extends JPanel {
         super.paint(g);
 
         Graphics2D g2d = (Graphics2D) g;
-        Game.getCurveView().paint(g2d);
-        Game.getCircleView().paint(g2d);
+        // Game.getCurveView().paint(g2d);
+        // Game.getCircleView().paint(g2d);
 
-//        for (GameObject object : gameObjects) {
-//            object.draw(g2d);
-//        }
+        for (Paintable object : this.objects) {
+            object.paint(g2d);
+        }
     }
 }
