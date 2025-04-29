@@ -1,7 +1,6 @@
 package model;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
 
 public abstract class GameObject implements Movable {
     protected Color color;
@@ -20,8 +19,6 @@ public abstract class GameObject implements Movable {
         this.x = x;
         this.y = y;
     }
-
-    public abstract void draw(Graphics2D graphics2d);
 
     @Override
     public void move(int x, int y) {

@@ -1,20 +1,16 @@
 package view;
 
-import java.awt.*;
-
+import controller.Game;
 import model.Circle;
+import java.awt.Graphics2D;
 
-public class CircleView implements Paintable {
+public class CircleView {
+    private final Circle circle  = Game.getCircleInstance();
 
-    Circle cirle;
-
-    public CircleView(Circle cirle) {
-        this.cirle = cirle;
-    }
-
-    @Override
     public void paint(Graphics2D g) {
-        g.setColor(Color.GREEN);
-        g.drawArc(cirle.getX(), cirle.getY(), cirle.getRadius(), cirle.getRadius(), 0, 0);
+        if (circle != null) {
+            g.setColor(circle.getColor());
+            g.fillOval(circle.getX(), circle.getY(), circle.getWidth(), circle.getHeight());
+        }
     }
 }

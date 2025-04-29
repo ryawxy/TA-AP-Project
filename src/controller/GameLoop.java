@@ -14,8 +14,6 @@ public class GameLoop extends Thread {
 
         long previousTime = System.nanoTime();
 
-        int frames = 0;
-        int updates = 0;
         long lastCheck = System.currentTimeMillis();
 
         double deltaUpdate = 0;
@@ -30,25 +28,19 @@ public class GameLoop extends Thread {
             previousTime = currentTime;
 
             if (deltaUpdate >= 1) {
-
-                updates++;
                 deltaUpdate--;
             }
 
             if (deltaFrame >= 1) {
 
                 controller.updateGame();
-                // TODO
 
-                frames++;
                 deltaFrame--;
             }
 
             if (System.currentTimeMillis() - lastCheck >= 1000) {
                 lastCheck = System.currentTimeMillis();
 
-                frames = 0;
-                updates = 0;
             }
         }
     }
