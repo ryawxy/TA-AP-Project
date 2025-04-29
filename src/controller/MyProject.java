@@ -6,6 +6,5 @@ public class MyProject {
 
     public void start() {
         Game.getInstance().start();
-
     }
 }

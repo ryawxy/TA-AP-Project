@@ -2,6 +2,7 @@ package controller;
 
 public class GameLoop extends Thread {
     GameController controller;
+    private static int FRAME_RATE = 120;
 
     public GameLoop(GameController controller) {
         this.controller = controller;
@@ -9,8 +10,8 @@ public class GameLoop extends Thread {
 
     @Override
     public void run() {
-        double timePerFrame = 1000000000.0 / 120;
-        double timePerUpdate = 1000000000.0 / 120;
+        double timePerFrame = 1000000000.0 / FRAME_RATE;
+        double timePerUpdate = 1000000000.0 / FRAME_RATE;
 
         long previousTime = System.nanoTime();
 
@@ -33,6 +34,7 @@ public class GameLoop extends Thread {
 
             if (deltaFrame >= 1) {
 
+                // TODO
                 controller.updateGame();
 
                 deltaFrame--;

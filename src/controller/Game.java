@@ -33,6 +33,7 @@ public class Game {
         GamePanel panel = new GamePanel(getAllPaintables());
         GameController controller = new GameController(panel);
         controller.moveFirstObject();
+        controller.moveSecondObject();
         GameFrame frame = new GameFrame(panel);
 
         GameLoop gameLoop = new GameLoop(controller);

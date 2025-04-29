@@ -27,6 +27,7 @@ public class MovementController {
 
         // Center the object on the calculated point
         object.move(result.getX() - (object.getWidth() / 2), result.getY() - (object.getHeight() / 2));
+        object.setCurrentT(object.getCurrentT() + (object.getSpeed() * GameObject.CONSTANT_SPEED_FACTOR));
     }
 
     public static Point interpolateQuadratic(Point p0, Point p1, Point p2, double t) {

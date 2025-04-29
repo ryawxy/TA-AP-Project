@@ -1,0 +1,56 @@
+Date : 2025-04-29 14:55:17
+Directory : /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project
+Total : 21 files,  560 codes, 6 comments, 142 blanks, all 708 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         16 |        405 |          6 |        142 |        553 |
+| XML      |          5 |        155 |          0 |          0 |        155 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                   | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                      |         21 |        560 |          6 |        142 |        708 |
+| . (Files)                                                                                              |          1 |         11 |          0 |          0 |         11 |
+| .idea                                                                                                  |          4 |        144 |          0 |          0 |        144 |
+| src                                                                                                    |         16 |        405 |          6 |        142 |        553 |
+| src (Files)                                                                                            |          1 |          6 |          0 |          3 |          9 |
+| src/controller                                                                                         |          5 |        183 |          4 |         67 |        254 |
+| src/model                                                                                              |          5 |        127 |          0 |         45 |        172 |
+| src/view                                                                                               |          5 |         89 |          2 |         27 |        118 |
+| src/view (Files)                                                                                       |          3 |         45 |          0 |         15 |         60 |
+| src/view/frame                                                                                         |          1 |         14 |          0 |          3 |         17 |
+| src/view/panel                                                                                         |          1 |         30 |          2 |          9 |         41 |
++--------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                               | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/.idea/misc.xml                         | XML      |          6 |          0 |          0 |          6 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/.idea/modules.xml                      | XML      |          8 |          0 |          0 |          8 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/.idea/uiDesigner.xml                   | XML      |        124 |          0 |          0 |        124 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/.idea/vcs.xml                          | XML      |          6 |          0 |          0 |          6 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/AP-TA.iml                              | XML      |         11 |          0 |          0 |         11 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/Main.java                          | Java     |          6 |          0 |          3 |          9 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/controller/Game.java               | Java     |         55 |          0 |         17 |         72 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/controller/GameController.java     | Java     |         58 |          3 |         18 |         79 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/controller/GameLoop.java           | Java     |         32 |          0 |         16 |         48 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/controller/MovementController.java | Java     |         30 |          1 |         12 |         43 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/controller/MyProject.java          | Java     |          8 |          0 |          4 |         12 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/model/Circle.java                  | Java     |         15 |          0 |          8 |         23 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/model/Curve.java                   | Java     |         21 |          0 |          6 |         27 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/model/GameObject.java              | Java     |         61 |          0 |         20 |         81 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/model/Movable.java                 | Java     |         11 |          0 |          5 |         16 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/model/Point.java                   | Java     |         19 |          0 |          6 |         25 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/view/CircleView.java               | Java     |         16 |          0 |          4 |         20 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/view/CurveView.java                | Java     |         24 |          0 |          8 |         32 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/view/Paintable.java                | Java     |          5 |          0 |          3 |          8 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/view/frame/GameFrame.java          | Java     |         14 |          0 |          3 |         17 |
+| /Users/mohammadmahdi/Desktop/Projects/BP_Workshop/TA-AP-Project/src/view/panel/GamePanel.java          | Java     |         30 |          2 |          9 |         41 |
+| Total                                                                                                  |          |        560 |          6 |        142 |        708 |
++--------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

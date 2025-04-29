@@ -24,6 +24,7 @@ public class GameController {
         Game.getInstance().getGameObjects().add(createCircle());
         Game.getInstance().getCurves().add(createCurve());
         Game.getInstance().getGameObjects().add(createCircle(200, 100));
+        Game.getInstance().getCurves().add(createSecondCurve());
 
         panel.setObjects(Game.getInstance().getAllPaintables());
         refreshPanel();
@@ -49,12 +50,20 @@ public class GameController {
         return new Curve(points);
     }
 
+    private Curve createSecondCurve() {
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(50, 200));
+        points.add(new Point(400, 50));
+        points.add(new Point(600, 500));
+        return new Curve(points);
+    }
+
     private Circle createCircle() {
         return new Circle(40, 100, 100, 2, Color.GREEN);
     }
 
     private Circle createCircle(int x, int y) {
-        return new Circle(40, x, y, 2, Color.GREEN);
+        return new Circle(40, x, y, 4, Color.GREEN);
     }
 
     public void refreshPanel() {
@@ -64,16 +73,30 @@ public class GameController {
 
     public void updateGame() {
         moveFirstObject();
+        moveSecondObject();
     }
 
     public void moveFirstObject() {
         movementController.moveAlongCurve(Game.getInstance().getGameObjects().get(0),
                 Game.getInstance().getCurves().get(0), Game.getInstance().getGameObjects().get(0).getCurrentT());
+
         panel.setObjects(Game.getInstance().getAllPaintables());
         refreshPanel();
 
         if (Game.getInstance().getGameObjects().get(0).getCurrentT() >= 1.0) {
             Game.getInstance().getGameObjects().get(0).setCurrentT(0.0);
+        }
+    }
+
+    public void moveSecondObject() {
+        movementController.moveAlongCurve(Game.getInstance().getGameObjects().get(1),
+                Game.getInstance().getCurves().get(1), Game.getInstance().getGameObjects().get(1).getCurrentT());
+
+        panel.setObjects(Game.getInstance().getAllPaintables());
+        refreshPanel();
+
+        if (Game.getInstance().getGameObjects().get(1).getCurrentT() >= 1.0) {
+            Game.getInstance().getGameObjects().get(1).setCurrentT(0.0);
         }
     }
 }
